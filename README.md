@@ -4,6 +4,8 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 
 ## Problems
 
- Leaders in Array - [Description of the solution](Lecture_01/Leaders_in_array/solution.md) - [Implementation](Leaders_in_array/leaders.cpp)
+Leaders in Array - [Description of the solution](Lecture_01/Leaders_in_array/solution.md) - [Implementation](Lecture_01\Leaders_in_array\leaders.cpp)
 
-Missing Number - [Description of the solution](Lecture_01/Missing_number/solution.md) - [Implementation](Missing_number\missing_number.cpp)
+Missing Number - [Description of the solution](Lecture_01/Missing_number/solution.md) - [Implementation](Lecture_01\Missing_number\missing_number.cpp)
+
+Kadane's algorithm - [Description of the solution](Lecture_01/Kadane's_algorithm/solution.md) - [Implementation](Lecture_01\Kadane's_algorithm\kadane.cpp)
