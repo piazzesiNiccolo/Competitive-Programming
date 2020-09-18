@@ -6,5 +6,4 @@ Problems
 ---------------
 
 
-
  | Leaders in Array | [Description of the solution](Leaders\ in\ array/leaders_solution.md) | [Implementation](Leaders\ in\ array/leaders.cpp) |
