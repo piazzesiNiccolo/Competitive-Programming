@@ -1,40 +1,50 @@
 #include <iostream>
 #include <vector>
+#include <deque>
 
-void solve(){
+void max_windows(std::vector<int> const &vec, int k)
+{
+    std::deque<int> current;
     
-    int k, N;
-    std::cout << "window size:\n";
-    std::cin >> k;
-    std::cout << "Array size:\n";
-    std::cin >> N;
-    std::vector<int> v;
-    std::cout << "Insert array values:\n";
-    for (auto i = 0; i < N; i++)
+    for (auto i = 0; i < vec.size(); i++)
     {
-        int val;
-        std::cin >> val;
-        v.push_back(val);
-    }
-    
-    int max = 0;
-    std::cout << "\nmaximums in subarrays of size " << k << std::endl;
-    for (auto i = 0; i <= N - k; i++)
-    { 
-        max = 0;
-        for (auto j = i; j < i + k; j++)
+        while (!current.empty() && current.front() <= i - k)
         {
-            if (v[j] > max)
-            {
-                max = v[j];
-            }
-            
+            current.pop_front();
         }
-        std::cout << max << std::endl;
+
+        while (!current.empty() && vec.at(i) >= vec.at(current.back()))
+        {
+            current.pop_back();
+        }
+
+        current.push_back(i);
+        if (i >= k - 1)
+        {
+            std::cout << vec.at(current.front()) << " ";
+        }
     }
 }
 int main(int argc, char const *argv[])
 {
-    
-    solve();
+    int tests, arr_size;
+    std::vector<int> vec;
+    std::cin >> tests;
+    for (auto i = 0; i < tests; i++)
+    {
+        int n,k;
+        std::cin >> n;
+        std::cin >> k;
+        vec.reserve(n);
+        for (auto i = 0; i < n; i++)
+        {
+            int x;
+            std::cin >> x;
+            vec.push_back(x);
+        }
+        max_windows(vec,k);
+        std::cout << std::endl;
+        vec.clear();
+    }
+    return 0;
 }
