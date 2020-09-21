@@ -27,7 +27,7 @@ void max_windows(std::vector<int> const &vec, int k)
 }
 int main(int argc, char const *argv[])
 {
-    int tests, arr_size;
+    int tests;
     std::vector<int> vec;
     std::cin >> tests;
     for (auto i = 0; i < tests; i++)
