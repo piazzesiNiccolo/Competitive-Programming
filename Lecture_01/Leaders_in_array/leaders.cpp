@@ -8,17 +8,17 @@ void show_leaders(std::vector<int> const &vec)
     leaders.reserve(n);
     int max = vec.back();
     leaders.push_back(max);
-    for (auto i = 2; i < n; i++)
+    for (auto i = vec.rbegin() + 1; i < vec.rend(); ++i)
     {
-        if (vec.at(n - i) > max)
+        if (*i >= max)
         {
-            max = vec.at(n - i);
+            max = *i;
             leaders.push_back(max);
         }
     }
-    for (auto i = 0; i < leaders.size(); i++)
+    for (auto it = leaders.rbegin(); it < leaders.rend(); ++it)
     {
-        std::cout << leaders.at(leaders.size() - i - 1) << " ";
+        std::cout << *it << " ";
     }
 }
 int main(int argc, char const *argv[])
@@ -38,6 +38,7 @@ int main(int argc, char const *argv[])
             vec.push_back(x);
         }
         show_leaders(vec);
+        std::cout << std::endl;
         vec.clear();
     }
     return 0;
