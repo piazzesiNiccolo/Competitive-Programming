@@ -6,9 +6,8 @@ void show_leaders(std::vector<int> const &vec)
     std::vector<int> leaders;
     int n = vec.size();
     leaders.reserve(n);
-    int max = vec.back();
-    leaders.push_back(max);
-    for (auto i = vec.rbegin() + 1; i < vec.rend(); ++i)
+    int max = INT32_MIN;
+    for (auto i = vec.rbegin() ; i < vec.rend(); ++i)
     {
         if (*i >= max)
         {
