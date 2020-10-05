@@ -30,7 +30,7 @@ void  total_rain_trapped(std::vector<int> const& vec){
 
 int main(int argc, char const *argv[])
 {
-    int tests, arr_size;
+    int tests;
     std::vector<int> vec;
     std::cin >> tests;
     for (auto i = 0; i < tests; i++)
