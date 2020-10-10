@@ -4,7 +4,6 @@
 int find_strength(std::vector<int> & v)
 {
     int strength = 0,last_rung = 0,min = 0;
-    std::sort(v.begin(),v.end());
     for (auto i : v)
     {
         if (i - last_rung > strength)
