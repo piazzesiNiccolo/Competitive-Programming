@@ -4,14 +4,14 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 
 ## Problems
 
-|  | |  |
+| Problem | Description of the solution | Implementation  |
 | --------------- | --------------- | --------------- |
-|Leaders in Array  | [Description of the solution](Lecture_01/Leaders_in_array/solution.md) | [Implementation](Lecture_01/Leaders_in_array/leaders.cpp) |
-|Missing Number    | [Description of the solution](Lecture_01/Missing_number/solution.md) | [Implementation](Lecture_01/Missing_number/missing_number.cpp) |
-Kadane's algorithm | [Description of the solution](Lecture_01/Kadane's_algorithm/solution.md) | [Implementation](Lecture_01/Kadane's_algorithm/kadane.cpp) |
-Trapping rain water | [Description of the solution](Lecture_02/Trapping_rain_water/solution.md) | [Implementation](Lecture_02/Trapping_rain_water/rain_water.cpp) |
-Sliding window maximum | [Description of the solution](Lecture_02/Sliding_window_maximum/solution.md) |[Implementation](Lecture_02/Sliding_window_maximum/windowmax.cpp)
-Next larger element | [Description of the solution](Lecture_03/Next_larger_element/solution.md) | [Implementation](Lecture_03/Next_larger_element/next.cpp)  |
-Towers | [Description of the solution](Lecture_03/Towers/solution.md) | [Implementation](Lecture_03/Towers/towers.cpp) |
-Inversion count | [Description of the solution](Lecture_04/Inversion_count/solution.md) | [Implementation](Lecture_04/Inversion_count/inversion_count.cpp)|
-Maximum path sum | [Description of the solution](Lecture_06/Max_path_sum/solution.md) | [Implementation](Lecture_06/Max_path_sum/max_path_sum.cpp)|
+|Leaders in Array  | [leaders.md](Lecture_01/Leaders_in_array/leaders.md) | [leaders.cpp](Lecture_01/Leaders_in_array/leaders.cpp) |
+|Missing Number    | [missing_number.md](Lecture_01/Missing_number/missing_number.md) | [missing_number.cpp](Lecture_01/Missing_number/missing_number.cpp) |
+Kadane's algorithm | [kadane.md](Lecture_01/Kadane's_algorithm/kadane.md) | [kadane.cpp](Lecture_01/Kadane's_algorithm/kadane.cpp) |
+Trapping rain water | [rain_water.md](Lecture_02/Trapping_rain_water/rain_water.md) | [rain_water.cpp](Lecture_02/Trapping_rain_water/rain_water.cpp) |
+Sliding window maximum | [windowmax.md](Lecture_02/Sliding_window_maximum/windowmax.md) |[windowmax.cpp](Lecture_02/Sliding_window_maximum/windowmax.cpp)
+Next larger element | [next.md](Lecture_03/Next_larger_element/next.md) | [next.cpp](Lecture_03/Next_larger_element/next.cpp)  |
+Towers | [towers.md](Lecture_03/Towers/towers.md) | [towers.cpp](Lecture_03/Towers/towers.cpp) |
+Inversion count | [inversion_count.md](Lecture_04/Inversion_count/inversion_count.md) | [inversion_count.cpp](Lecture_04/Inversion_count/inversion_count.cpp)|
+Maximum path sum | [max_path_sum.md](Lecture_06/Max_path_sum/max_path_sum.md) | [max_path_sum.cpp](Lecture_06/Max_path_sum/max_path_sum.cpp)|
