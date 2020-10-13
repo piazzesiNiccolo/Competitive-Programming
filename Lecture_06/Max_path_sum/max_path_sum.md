@@ -1,6 +1,6 @@
 # Solution
 
-We can use recursive tree traversal. For every node X,find the maximum root to leaf sum in left and rught subtree. Add these two values with the value in X. If this sum is greater than the  maximum path sum found so far, it becomes the new maximum.
+We can use recursive tree traversal. For every node X,find the maximum root to leaf sum in left and right subtree. Add these two values with the value in X. If this sum is greater than the  maximum path sum found so far, it becomes the new maximum.
 
 ## Time complexity
 

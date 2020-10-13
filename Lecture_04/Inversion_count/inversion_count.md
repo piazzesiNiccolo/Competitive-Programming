@@ -5,3 +5,5 @@ We can modify MergeSort to count inversions. At each recursive step, we count th
 The algorithm runs in O(nlogn), the same complexity as mergesort .
 
 ## Space complexity
+
+O(n) for the auxiliary array
