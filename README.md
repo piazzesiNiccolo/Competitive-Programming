@@ -15,3 +15,4 @@ Next larger element | [next.md](Lecture_03/Next_larger_element/next.md) | [next.
 Towers | [towers.md](Lecture_03/Towers/towers.md) | [towers.cpp](Lecture_03/Towers/towers.cpp) |
 Inversion count | [inversion_count.md](Lecture_04/Inversion_count/inversion_count.md) | [inversion_count.cpp](Lecture_04/Inversion_count/inversion_count.cpp)|
 Maximum path sum | [max_path_sum.md](Lecture_06/Max_path_sum/max_path_sum.md) | [max_path_sum.cpp](Lecture_06/Max_path_sum/max_path_sum.cpp)|
+Ilya and queries | [ilya.md](Lecture_07/Ilya_and_queries/ilya.md) | [ilya.cpp](Lecture_07/Ilya_and_queries/ilya.cpp)
