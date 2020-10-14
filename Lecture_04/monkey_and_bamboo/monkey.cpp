@@ -1,58 +1,68 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-int find_strength(std::vector<int> & v)
-{
-    int strength = 0,last_rung = 0,min = 0;
-    for (auto i : v)
-    {
-        if (i - last_rung > strength)
-        {
-            strength = i-last_rung;
-        }
-        last_rung = i;
-    }
 
-    min = strength;
-    last_rung = 0;
-    
-    for (auto i : v)
+bool try_strength(std::vector<int64_t> const &v, int64_t strength)
+{
+    for (int64_t i = 1; i < v.size(); i++)
     {
-        if (i-last_rung == strength)
+        if (v.at(i) - v.at(i - 1) > strength)
+        {
+            return false;
+        }
+        else if (v.at(i) - v.at(i - 1) == strength)
         {
             strength--;
         }
-        else if (i-last_rung > strength)
-        {
-            min++;
-            break;
-            
-        }
-        last_rung = i;
     }
-    
-    return min;
+    return true;
+}
+
+int64_t find_strength(std::vector<int64_t> &v)
+{
+    int64_t m, l = 1, r = *(v.end() - 1) - *(v.begin() + 1), final_value = 0;
+
+    while (l < r)
+    {
+        m = (l + r)  / 2;
+
+        if (try_strength(v, m))
+        {
+            r = m;
+            final_value = m;
+        }
+        else
+        {
+            l = m+1;
+        }
+    }
+
+    // if we reach here, then element was
+    // not present
+    return final_value;
 }
 int main(int argc, char const *argv[])
 {
 
-    int tests;
-    std::vector<int> vec;
+    int64_t tests;
+    std::vector<int64_t> vec;
     std::cin >> tests;
     for (auto i = 0; i < tests; i++)
     {
-        int n;
+        int64_t n;
         std::cin >> n;
         vec.reserve(n);
+        vec.push_back(0);
         for (auto i = 0; i < n; i++)
         {
-            int x;
+            int64_t x;
             std::cin >> x;
             vec.push_back(x);
         }
-    int min_strength = find_strength(vec);
-    std::cout << min_strength << std::endl;
-    vec.clear();
+        std::sort(vec.begin(),vec.end());
+        int64_t min_strength = find_strength(vec);
+        std::cout << min_strength << std::endl;
+        vec.clear();
     }
     return 0;
 }
