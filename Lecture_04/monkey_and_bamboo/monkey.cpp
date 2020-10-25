@@ -2,45 +2,36 @@
 #include <vector>
 #include <algorithm>
 
-bool try_strength(std::vector<int64_t> const &v, int64_t strength)
-{
-    for (int64_t i = 1; i < v.size(); i++)
-    {
-        if (v.at(i) - v.at(i - 1) > strength)
-        {
-            return false;
-        }
-        else if (v.at(i) - v.at(i - 1) == strength)
-        {
-            strength--;
-        }
-    }
-    return true;
-}
-
 int64_t find_strength(std::vector<int64_t> &v)
 {
-    int64_t m, l = 1, r = *(v.end() - 1) - *(v.begin() + 1), final_value = 0;
+    int64_t temp_strength = 0, final_value = 0;
 
-    while (l < r)
+    for (auto i = 1; i < v.size(); i++)
     {
-        m = (l + r)  / 2;
-
-        if (try_strength(v, m))
+        if (v.at(i) - v.at(i - 1) > temp_strength)
         {
-            r = m;
-            final_value = m;
+            temp_strength = v.at(i) - v.at(i - 1);
         }
-        else
-        {
-            l = m+1;
-        }
+      
     }
-
-    // if we reach here, then element was
-    // not present
+    final_value = temp_strength;
+    for (auto i = 1; i < v.size(); i++)
+    {
+        if (v.at(i) - v.at(i - 1) == temp_strength)
+        {
+            temp_strength--;
+        }
+        else if (v.at(i) - v.at(i - 1) > temp_strength)
+        {
+            final_value++;
+            break;
+        }
+        
+      
+    }
     return final_value;
 }
+
 int main(int argc, char const *argv[])
 {
 
@@ -51,17 +42,17 @@ int main(int argc, char const *argv[])
     {
         int64_t n;
         std::cin >> n;
-        vec.reserve(n);
+        vec.reserve(n + 1);
         vec.push_back(0);
-        for (auto i = 0; i < n; i++)
+        for (auto j = 0; j < n; j++)
         {
             int64_t x;
             std::cin >> x;
             vec.push_back(x);
         }
-        std::sort(vec.begin(),vec.end());
+        std::sort(vec.begin(), vec.end());
         int64_t min_strength = find_strength(vec);
-        std::cout << min_strength << std::endl;
+        std::cout << "Case " << i + 1 << ": " << min_strength << std::endl;
         vec.clear();
     }
     return 0;
