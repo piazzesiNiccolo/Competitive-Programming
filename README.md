@@ -14,5 +14,6 @@ Sliding window maximum | [windowmax.md](Lecture_02/Sliding_window_maximum/window
 Next larger element | [next.md](Lecture_03/Next_larger_element/next.md) | [next.cpp](Lecture_03/Next_larger_element/next.cpp)  |
 Towers | [towers.md](Lecture_03/Towers/towers.md) | [towers.cpp](Lecture_03/Towers/towers.cpp) |
 Inversion count | [inversion_count.md](Lecture_04/Inversion_count/inversion_count.md) | [inversion_count.cpp](Lecture_04/Inversion_count/inversion_count.cpp)|
+The Monkey and the Oiled Bamboo | [monkey.md](Lecture_04/monkey_and_bamboo/monkey.md) | [monkey.cpp](Lecture_04/monkey_and_bamboo/monkey.cpp)
 Maximum path sum | [max_path_sum.md](Lecture_06/Max_path_sum/max_path_sum.md) | [max_path_sum.cpp](Lecture_06/Max_path_sum/max_path_sum.cpp)|
 Ilya and queries | [ilya.md](Lecture_07/Ilya_and_queries/ilya.md) | [ilya.cpp](Lecture_07/Ilya_and_queries/ilya.cpp)

@@ -8,13 +8,15 @@ int64_t find_strength(std::vector<int64_t> &v)
 
     for (auto i = 1; i < v.size(); i++)
     {
-        if (v.at(i) - v.at(i - 1) > temp_strength)
+        if (v.at(i) - v.at(i - 1) > final_value)
         {
-            temp_strength = v.at(i) - v.at(i - 1);
+            final_value = v.at(i) - v.at(i - 1);
         }
       
     }
-    final_value = temp_strength;
+    
+    temp_strength = final_value;
+    
     for (auto i = 1; i < v.size(); i++)
     {
         if (v.at(i) - v.at(i - 1) == temp_strength)
