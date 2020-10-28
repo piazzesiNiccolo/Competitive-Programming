@@ -17,4 +17,5 @@ Towers | [towers.md](Lecture_03/Towers/towers.md) | [towers.cpp](Lecture_03/Towe
 Inversion count | [inversion_count.md](Lecture_04/Inversion_count/inversion_count.md) | [inversion_count.cpp](Lecture_04/Inversion_count/inversion_count.cpp)|
 The Monkey and the Oiled Bamboo | [monkey.md](Lecture_04/monkey_and_bamboo/monkey.md) | [monkey.cpp](Lecture_04/monkey_and_bamboo/monkey.cpp)
 Maximum path sum | [max_path_sum.md](Lecture_06/Max_path_sum/max_path_sum.md) | [max_path_sum.cpp](Lecture_06/Max_path_sum/max_path_sum.cpp)|
+Longest k-Good Segment | [segment.md](Lecture_06/Longest_kgood_segment/segment.md) | [segment.cpp](Lecture_06/Longest_kgood_segment/segment.cpp) 
 Ilya and queries | [ilya.md](Lecture_07/Ilya_and_queries/ilya.md) | [ilya.cpp](Lecture_07/Ilya_and_queries/ilya.cpp)
