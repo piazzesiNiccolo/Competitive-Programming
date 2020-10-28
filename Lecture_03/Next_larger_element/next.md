@@ -12,6 +12,8 @@ When the array is fully scanned print from right to left the array nexts
 
 ## Time complexity
 
-The algorithm scans the array v once and the array nexts once . The stack operations takes constant time. The total time complexity is O(n).
+O(n)
 
 ## Space complexity
+
+O(n)

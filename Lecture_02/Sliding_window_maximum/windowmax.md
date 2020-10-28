@@ -10,7 +10,9 @@ The algorithm computes the maximum of every window using a deque Q. For each ele
 
 ## Time complexity
 
-The algorithm takes O(n) time to traverse the array.
+O(n)
 
 
 ## Space complexity
+
+O(n) for the deque
