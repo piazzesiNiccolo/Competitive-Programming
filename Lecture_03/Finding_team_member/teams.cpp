@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
     }
     sort(teams.begin(),teams.end(), [](team const& a, team const& b){return a.strength > b.strength;});
     vector<int>  paired(2*n);
-    for (struct team e : teams)
+    for (team e : teams)
     {
         if (paired[e.first] == 0 && paired[e.second] == 0)
         {
