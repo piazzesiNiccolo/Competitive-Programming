@@ -1,15 +1,19 @@
 #include <iostream>
 #include <set>
 using namespace std;
-int find_max(set<int> const &light, set<int> const &fire)
+
+
+int64_t find_max(set<int64_t>  &light, set<int64_t> & fire)
 {
-    int max = 0;
+    if(fire.empty()){fire.insert(0);}
+    int64_t max = 0;
     bool doubled = false;
     auto i = light.begin();
-    auto j = fire.begin();
-    while (i != light.end() || j != fire.end())
+    auto j = fire.crbegin();
+    
+    while (i != light.end() || j != fire.crend())
     {
-        if ((i != light.end() && *i <= *j) || j == fire.end())
+        if ((i != light.end() && *i <= *j) || j == fire.crend())
         {
             if (doubled)
             {
@@ -22,7 +26,7 @@ int find_max(set<int> const &light, set<int> const &fire)
             doubled = true;
             i++;
         }
-        else if ((*i > *j && j != fire.end()) || i == light.end())
+        else if ((*i > *j && j != fire.crend()) || i == light.end())
         {
             if (doubled)
             {
@@ -51,19 +55,19 @@ int find_max(set<int> const &light, set<int> const &fire)
             j++;
         }
     }
-
-    cout << "max: " << max;
+    if(fire.size()==1){fire.erase(0);}
+   
     return max;
 }
 int main(int argc, char const *argv[])
 {
     ios_base::sync_with_stdio(false);
-    int n;
+    int64_t n;
     cin >> n;
-    set<int> fire, light;
-    for (int i = 0; i < n; i++)
+    set<int64_t> fire, light;
+    for (int64_t i = 0; i < n; i++)
     {
-        int type, value;
+        int64_t type, value;
         cin >> type >> value;
         if (type)
         {
@@ -87,7 +91,7 @@ int main(int argc, char const *argv[])
                 fire.erase(-value);
             }
         }
-        find_max(light, fire);
+        cout << find_max(light, fire) << endl;
     }
 
     return 0;
