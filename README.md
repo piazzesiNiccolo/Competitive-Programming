@@ -20,4 +20,5 @@ Maximum path sum | [max_path_sum.md](Lecture_06/Max_path_sum/max_path_sum.md) | 
 Longest k-Good Segment | [segment.md](Lecture_06/Longest_kgood_segment/segment.md) | [segment.cpp](Lecture_06/Longest_kgood_segment/segment.cpp) 
 Ilya and queries | [ilya.md](Lecture_07/Ilya_and_queries/ilya.md) | [ilya.cpp](Lecture_07/Ilya_and_queries/ilya.cpp) |
 Little girl and maximum sum | [girl.md](Lecture_07/Little_girl_and_maximum_sum/girl.md) | [girl.cpp](Lecture_07/Little_girl_and_maximum_sum/girl.cpp)|
+Number of ways | [ways.md](Lecture_07/Number_of_ways/ways.md) | [ways.cpp](Lecture_07/Number_of_ways/ways.cpp)|
 Update the array | [update.md](Lecture_08/Update_the_array/update.md) | [update.cpp](Lecture_08/Update_the_array/update.cpp)
