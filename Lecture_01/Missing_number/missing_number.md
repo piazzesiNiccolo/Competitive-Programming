@@ -1,6 +1,6 @@
 # Solution
 
-First compute the total sum from 1 to N using gauss formula: $\sum_{i=1}^ni = \frac{n(n+1)}{2} $. After that sum the input numbers and subtract this value from the toal sum. The result will be the missing number
+First compute the total sum from 1 to N using gauss formula: $\sum_{i=1}^ni = \frac{n(n+1)}{2} $. After that sum the input numbers and subtract this value from the total sum. The result will be the missing number.
 
 ## Time complexity
 
