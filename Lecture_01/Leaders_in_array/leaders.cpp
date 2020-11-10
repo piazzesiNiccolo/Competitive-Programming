@@ -1,44 +1,32 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-void show_leaders(std::vector<int> const &vec)
-{
+vector<int> leaders(int arr[], int n){
+    
+    // Your code here
+    
+    /******************
+     * You just need to complete this
+     * function and return the vector
+     * containing the leaders.
+     * ***************/
+
     std::vector<int> leaders;
-    int n = vec.size();
     leaders.reserve(n);
     int max = INT32_MIN;
-    for (auto i = vec.rbegin() ; i < vec.rend(); ++i)
+    for (int i = n-1; i >=0 ; i--)
     {
-        if (*i >= max)
+        if (arr[i] >= max)
         {
-            max = *i;
+            max = arr[i];
             leaders.push_back(max);
         }
+        
     }
-    for (auto it = leaders.rbegin(); it < leaders.rend(); ++it)
-    {
-        std::cout << *it << " ";
-    }
+    std::reverse(leaders.begin(),leaders.end());
+    return leaders;
+     
+    
 }
-int main(int argc, char const *argv[])
-{
-    int tests, arr_size;
-    std::vector<int> vec;
-    std::cin >> tests;
-    for (auto i = 0; i < tests; i++)
-    {
-        int n;
-        std::cin >> n;
-        vec.reserve(n);
-        for (auto i = 0; i < n; i++)
-        {
-            int x;
-            std::cin >> x;
-            vec.push_back(x);
-        }
-        show_leaders(vec);
-        std::cout << std::endl;
-        vec.clear();
-    }
-    return 0;
-}
+
