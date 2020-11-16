@@ -8,7 +8,7 @@ The algorithm computes the solution using a stack q and a support array nexts to
 
 - push x in the stack
 
-When the array is fully scanned print from right to left the array nexts
+At the end return the array nexts reversed in order to output the solution from left to right
 
 ## Time complexity
 

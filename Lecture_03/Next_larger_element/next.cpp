@@ -1,52 +1,24 @@
-        #include <iostream>
-        #include <vector>
-        #include <stack>
-        
-        void next_larger_element(std::vector<int64_t> const& v)
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <algorithm>
+using namespace std;
+vector<long long> nextLargerElement(long long arr[], int n)
+{
+   long long next = 0;
+   vector<long long> nexts;
+   stack<long long> q;
+   nexts.reserve(n);
+   for (int i = n-1; i >=0; i--)
+   {
+        while (!q.empty() && arr[i] > q.top())
         {
-            int64_t next = 0;
-            std::vector<int64_t> nexts;
-            nexts.reserve(v.size());
-            std::stack<int64_t> q;
-        
-            for (auto i = v.rbegin(); i < v.rend(); ++i)
-            {
-                while (!q.empty() && *i > q.top())
-                {
-                    q.pop();
-                }
-                next = q.empty() ? -1 : q.top();
-                nexts.push_back(next);
-                q.push(*i);
-                
-            }
-            for (auto it = nexts.rbegin(); it < nexts.rend(); ++it)
-            {
-                std::cout << *it << " ";
-            }
-            
-            
+            q.pop();
         }
-        int main(int argc, char const *argv[])
-        {
-
-            int tests = 0;
-            std::cin >> tests;
-            std::vector<int64_t> vec;
-            for (auto i = 0; i < tests; ++i)
-            {
-                int64_t n = 0;
-                std::cin >> n;
-                vec.reserve(n);
-                for (auto j = 0; j < n; ++j)
-                {
-                    int x = 0;
-                    std::cin >> x;
-                    vec.push_back(x);
-                }
-                next_larger_element(vec);
-                std::cout << std::endl;
-                vec.clear();
-            }
-            return 0;
-        }
+        next = q.empty() ? -1 : q.top();
+        nexts.push_back(next);
+        q.push(arr[i]);
+   }
+   reverse(nexts.begin(),nexts.end());
+   return nexts;
+}
