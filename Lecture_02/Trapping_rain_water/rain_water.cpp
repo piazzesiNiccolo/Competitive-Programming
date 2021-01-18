@@ -1,52 +1,20 @@
-#include<iostream>
-#include <vector>
-#include <algorithm>
-
-void  total_rain_trapped(std::vector<int> const& vec){
-    std::vector<int> left_max;
-    std::vector<int> right_max;
-    left_max.reserve(vec.size());
-    right_max.reserve(vec.size());
-    int max = 0;
-    int rain = 0;
-    for (auto const& el: vec)
-    {   
-        max = std::max(max, el);
-        left_max.push_back(max);
+int trappingWater(int arr[], int n){
+    
+    int left_max[n], right_max[n];
+    int maxH = 0, rain = 0;
+    for (int i = 0; i< n; i++){
+        maxH = max(maxH, arr[i]);
+        left_max[i] = maxH;
     }
-    max = 0;
-    for (auto j = vec.rbegin(); j < vec.rend() ; ++j)
-    {   
-        max = std::max(max,*j);
-        right_max.push_back(max);
+    maxH = 0;
+    for(int j = n-1; j >= 0; j--){
+        maxH = max(maxH, arr[j]);
+        right_max[j] = maxH;
     }
-
-    for (auto i = 0; i < vec.size(); i++)
-    {
-        rain += std::min(left_max.at(i),right_max.at(vec.size() - i -1)) - vec.at(i);
+    for(int i = 0; i < n; i++){
+        rain += min(left_max[i], right_max[i]) - arr[i];
+        
     }
-    std::cout << rain;
+    return rain;
+    
 }
-
-int main(int argc, char const *argv[])
-{
-    int tests;
-    std::vector<int> vec;
-    std::cin >> tests;
-    for (auto i = 0; i < tests; i++)
-    {
-        int n;
-        std::cin >> n;
-        vec.reserve(n);
-        for (auto i = 0; i < n; i++)
-        {
-            int x;
-            std::cin >> x;
-            vec.push_back(x);
-        }
-        total_rain_trapped(vec);
-        std::cout << std::endl;
-        vec.clear();
-    }
-    return 0;
-}   

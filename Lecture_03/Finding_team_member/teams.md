@@ -1,6 +1,6 @@
 # Solution
 
-Sort the teams in drecreasing order of their strength and choose teammates with a greedy strategy
+Sort the teams in decreasing order of their strength. Now scan each pair and if both members aree not in another team already make them teammates.
 
 
 # Time complexity
