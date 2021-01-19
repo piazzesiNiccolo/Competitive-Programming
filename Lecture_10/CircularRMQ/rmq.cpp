@@ -22,23 +22,7 @@ public:
         build(V, 0, 0, N - 1);
     }
 
-    void build(const vector<int64_t> &v, int pos, int low, int high)
-    {
-        if (low > high)
-        {
-            return;
-        }
-        if (low == high)
-        {
-            tree[pos] = v[low];
-            return;
-        }
-        int mid = (high + low) / 2;
-        build(v, 2 * pos + 1, low, mid);
-        build(v, 2 * pos + 2, mid + 1, high);
-        tree[pos] = min(tree[2 * pos + 1], tree[2 * pos + 2]);
-        return;
-    }
+    
     void update(int low, int high, int64_t val)
     {
         if (low > high)
@@ -66,6 +50,23 @@ public:
     }
 
 private:
+    void build(const vector<int64_t> &v, int pos, int low, int high)
+    {
+        if (low > high)
+        {
+            return;
+        }
+        if (low == high)
+        {
+            tree[pos] = v[low];
+            return;
+        }
+        int mid = (high + low) / 2;
+        build(v, 2 * pos + 1, low, mid);
+        build(v, 2 * pos + 2, mid + 1, high);
+        tree[pos] = min(tree[2 * pos + 1], tree[2 * pos + 2]);
+        return;
+    }
     void lazyUpdate(int pos, int start, int end)
     {
         if (lazy[pos] != 0)
