@@ -5,13 +5,14 @@
 #include <string>
 #include <math.h>
 using namespace std;
-struct segTree
+
+class RMQSegTree
 {
     int N;
     vector<int64_t> tree, lazy;
 
 public:
-    segTree(const std::vector<int64_t> &V)
+    RMQSegTree(const std::vector<int64_t> &V)
     {
         N = V.size();
         int x = (int)ceil(log2(N));
@@ -21,7 +22,7 @@ public:
         build(V, 0, 0, N - 1);
     }
 
-    void build(const std::vector<int64_t> &v, int pos, int low, int high)
+    void build(const vector<int64_t> &v, int pos, int low, int high)
     {
         if (low > high)
         {
@@ -133,7 +134,7 @@ int main(int argc, char const *argv[])
     }
     cin >> q;
 
-    segTree t(v);
+    RMQSegTree t(v);
     string line;
     vector<int64_t> words;
     cin.ignore(256, '\n');
