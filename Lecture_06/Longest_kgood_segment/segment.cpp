@@ -19,7 +19,7 @@ int main()
     }
     int l = 0, r = 0, max_l = 0, max_r = 0, uniques = 0;
     std::vector<int> freq(1000001, 0); 
-    /* NOTE: i would usually use a multiset to store the unique values, but since the  elements of the input array  on codeforces
+    /* NOTE: i would usually use a set to store the unique values, but since the  elements of the input array  on codeforces
     are said to be <= 10^6 i used a vector  for major time efficiency
     */
 

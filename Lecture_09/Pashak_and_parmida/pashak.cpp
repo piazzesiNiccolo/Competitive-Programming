@@ -6,18 +6,20 @@ using namespace std;
     vector<int64_t> elems;
     public:
     
-    Femwick_Tree(int n) : elems(n) {}
+    Femwick_Tree(int n) : elems(n+1, 0) {}
 
     int64_t sum(int idx){
+        
         int64_t sum = 0;
-        for(;idx >= 0; idx -= idx & -idx){
+        for(idx++; idx > 0; idx -= idx & -idx){
             sum += elems[idx];
         }
         return sum;
     }
     
     void add(int idx, int64_t val){
-        for(; idx <= elems.size(); idx += idx & -idx){
+         //start from one to not loop indefinitely
+        for(idx++; idx <= elems.size(); idx += idx & -idx){
             elems[idx] += val;
         }
     }
@@ -43,17 +45,17 @@ int main(){
     }
     
     map_to_rank(v, aux);
-    vector<int> suffix_counter(n, 0),  counter(n, 0);
+    vector<int> suffix_counter(n+1, 0),  counter(n+1, 0);
     Femwick_Tree tree(n);
     for (int i = n - 1; i >= 0; i--)
     {
         counter[v[i]]++;
-        suffix_counter[v[i]] = counter[v[i]];
+        suffix_counter[i] = counter[v[i]];
         tree.add(counter[v[i]], 1);
 
     }
     fill(counter.begin(), counter.end(), 0);
-    int sol = 0;
+    int64_t sol = 0;
     for (int i = 0; i < n; i++)
     {
         tree.add(suffix_counter[i], -1);
