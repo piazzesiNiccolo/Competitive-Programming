@@ -90,7 +90,7 @@ int main()
     }
     for (auto const& r: powerful(v, queries))
     {
-            printf("%I64d\n",r);
+            cout << r << endl;
     }
     
     return 0;
