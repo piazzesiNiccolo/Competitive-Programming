@@ -1,59 +1,53 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 #include <math.h>
 using namespace std;
 
 struct query{
-    int l, r;
+    int l, r,i;
     int64_t x;
 
-    query(int l, int r, int64_t x) : l(l), r(r), x(x){}
+    query(int l, int r,int i, int64_t x) : l(l), r(r),i(i), x(x){}
 };
 
-void smaller_values(const vector<int64_t> &v,vector<pair<query, int>> &q){
+void smaller_values(const vector<int64_t> &v,vector<query> &q){
     const int BLOCK = sqrt(v.size());
     vector<int64_t> results(q.size(), 0);
-    auto compare = [BLOCK](const pair<query, int> &q1, const pair<query, int> &q2) {
-        return make_pair(q1.first.l / BLOCK, q1.first.r) < make_pair(q2.first.l / BLOCK, q2.first.r);
+    vector<int64_t> smaller(v.size());
+    auto compare = [BLOCK](const query &q1, const query &q2) {
+        return make_pair(q1.l / BLOCK, q1.r) < make_pair(q2.l / BLOCK, q2.r);
     };
     sort(q.begin(), q.end(), compare);
     int currL = 0, currR=-1, l, r;
     int64_t sum = 0,k;
     for (int i = 0; i < q.size(); i++)
     {
-        l = q[i].first.l, r = q[i].first.r;
-        k = q[i].first.x;
+        l = q[i].l, r = q[i].r;
+        k = q[i].x;
         while (currL < l)
         {
-            if(v[currL] <= k){
-                sum--;
-            }
+            smaller[v[currL]]--;
             currL++;
         }
         while (currL > l)
         {
             currL--;
-            if(v[currL] <= k){
-                sum++;
-            }
+            smaller[v[currL]]++;
             
         }
         while (currR < r)
         {
             currR++;
-            if(v[currR] <= k){
-                sum++;
-            }
+            smaller[v[currR]]++;
             
         }while (currR > r)
         {
-            if(v[currR] <= k){
-                sum--;
-            }
+            smaller[v[currR]]--;
             currR--;
         }
-        results[q[i].second] = sum;
+        results[q[i].i] = accumulate(smaller.begin(),smaller.begin() + k+1, 0);
     }
     for (auto r : results)
     {
@@ -66,7 +60,7 @@ int main(){
     int n, m;
     cin >> n >> m;
     vector<int64_t> values(n);
-    vector<pair<query, int>> queries(m);
+    vector<query> queries;
     for(int i = 0; i< n; i++){
         cin >> values[i];
     }
@@ -75,8 +69,7 @@ int main(){
     for (int i = 0; i < m; i++)
     {
         cin >> l >> r >> x;
-        query q(l, r, x);
-        queries.emplace_back( q, i);
+        queries.emplace_back(l,r,i,x);
     }
     smaller_values(values, queries);
     return 0;

@@ -5,6 +5,9 @@
 #include <math.h>
 using namespace std;
 
+/*NOTE: on codeforces if i used the normal g++17 compiler the execution almost went 
+over the limit(around 4960 ms), using the 64 bit compiler instead made the program execute way faster(around 2000 ms)*/
+
 vector<int64_t> powerful(const vector<int64_t> &v, vector<pair<pair<int, int>, int>> &queries)
 {
     const int BLOCK_SIZE = sqrt(v.size());
@@ -90,7 +93,7 @@ int main()
     }
     for (auto const& r: powerful(v, queries))
     {
-            cout << r << endl;
+             printf("%I64d\n",r); 
     }
     
     return 0;
