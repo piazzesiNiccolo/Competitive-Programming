@@ -23,5 +23,6 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 |[Number of ways](http://codeforces.com/problemset/problem/466/C?locale=en) | [ways.md](Lecture_07/Number_of_ways/ways.md) | [ways.cpp](Lecture_07/Number_of_ways/ways.cpp)|
 |[Update the array](http://www.spoj.com/problems/UPDATEIT/) | [update.md](Lecture_08/Update_the_array/update.md) | [update.cpp](Lecture_08/Update_the_array/update.cpp)|
 |[Circular Range Minimum Query](https://codeforces.com/problemset/problem/52/C)|[rmq.md](Lecture_10/CircularRMQ/rmq.md)|[rmq.cpp](Lecture_10/CircularRMQ/rmq.cpp)
+|[Powerful Array](https://codeforces.com/contest/86/problem/D)|[pow.md](Lecture_13/Powerful_array/pow.md)|[pow.cpp](Lecture_13/Powerful_array/pow.cpp)
 |[Longest common subsequence](https://practice.geeksforgeeks.org/problems/longest-common-subsequence-1587115620/1)|[lcs.md](Lecture_14/Longest_common_subsequence/lcs.md) |[lcs.cpp](Lecture_14/Longest_common_subsequence/lcs.cpp)|
 |[Edit distance](https://practice.geeksforgeeks.org/problems/edit-distance3702/1)|[ed.md](Lecture_15/Edit_distance/ed.md)|[ed.cpp](Lecture_15/Edit_distance/ed.cpp)|

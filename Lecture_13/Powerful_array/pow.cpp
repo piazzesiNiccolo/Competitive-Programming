@@ -6,12 +6,13 @@
 using namespace std;
 
 /*NOTE: on codeforces if i used the normal g++17 compiler the execution almost went 
-over the limit(around 4960 ms), using the 64 bit compiler instead made the program execute way faster(around 2000 ms)*/
+over the limit(around 4960 ms), using the 64 bit compiler instead made the program execute way faster(it goes from 2000 to 3500 ms 
+depending on how i print elements)*/
 
 vector<int64_t> powerful(const vector<int64_t> &v, vector<pair<pair<int, int>, int>> &queries)
 {
     const int BLOCK_SIZE = sqrt(v.size());
-    vector<int64_t> freq(1e6 + 1, 0);
+    vector<int64_t> freq(*max_element(v.begin(),v.end())+1, 0);
     vector<int64_t> results(queries.size(), 0);
     auto compare = [BLOCK_SIZE](const pair<pair<int, int>, int> &q1, const pair<pair<int, int>, int> &q2) {
         return make_pair(q1.first.first / BLOCK_SIZE, q1.first.second) < make_pair(q2.first.first / BLOCK_SIZE, q2.first.second);
@@ -93,7 +94,7 @@ int main()
     }
     for (auto const& r: powerful(v, queries))
     {
-             printf("%I64d\n",r); 
+            cout << r << endl; 
     }
     
     return 0;
