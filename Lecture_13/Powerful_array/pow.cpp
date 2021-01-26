@@ -19,7 +19,7 @@ vector<int64_t> powerful(const vector<int64_t> &v, vector<pair<pair<int, int>, i
     };
 
     sort(queries.begin(), queries.end(), compare);
-    int currL = 0, currR = -1, l, r;
+    int currL = queries[0].second, currR = queries[0].second-1, l, r;
     int64_t sum = 0;
     for (int i = 0; i < queries.size(); i++)
     {
