@@ -45,7 +45,7 @@ void tree_and_queries(vector<vector<int64_t>> &tree, vector<int64_t> &colours, v
     auto remove = [&](int64_t pos){
        
         morethanX[freq[flat[pos]]]--;
-         freq[flat[pos]]--;
+        freq[flat[pos]]--;
 
     };
     int64_t l, r;
@@ -66,6 +66,9 @@ void tree_and_queries(vector<vector<int64_t>> &tree, vector<int64_t> &colours, v
  
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
     int64_t n, m;
     cin >> n >> m;
     vector<int64_t> colours(n);

@@ -27,4 +27,4 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 |[Tree and Queries](https://codeforces.com/contest/375/problem/D) | [treequery.md](Lecture_13/Tree_and_queries/treequery.md)| [treequery.cpp](Lecture_13/Tree_and_queries/treequery.cpp)|
 |[0-1 Knapsack](https://www.spoj.com/problems/KNAPSACK/)|[knapsack.md](Lecture_14/0-1_knapsack/knapsack.md) |[knapsack.cpp](Lecture_14/0-1_knapsack/knapsack.cpp)|
 |[Longest common subsequence](https://practice.geeksforgeeks.org/problems/longest-common-subsequence-1587115620/1)|[lcs.md](Lecture_14/Longest_common_subsequence/lcs.md) |[lcs.cpp](Lecture_14/Longest_common_subsequence/lcs.cpp)|
-|[Edit distance](https://practice.geeksforgeeks.org/problems/edit-distance3702/1)|[ed.md](Lecture_15/Edit_distance/ed.md)|[ed.cpp](Lecture_15/Edit_distance/ed.cpp)|
+|[Edit distance](https://practice.geeksforgeeks.org/problems/edit-distance3702/1)|[ed.md](Lecture_16/Edit_distance/ed.md)|[ed.cpp](Lecture_16/Edit_distance/ed.cpp)|
