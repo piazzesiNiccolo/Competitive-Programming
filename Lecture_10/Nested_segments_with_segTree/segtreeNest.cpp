@@ -13,9 +13,9 @@ class Seg_Tree{
     vector<int64_t> tree, lazy;
 
 public:
-    Seg_Tree(const vector<int64_t> &v){
-        n = v.size();
-        int s = (int)ceil(log2(n));
+    Seg_Tree(int size){
+        n = size;
+        int s = (int)ceil(log2(size));
         int tree_size = 2*(int)pow(2,s) - 1;
         tree.resize(tree_size,0);
         lazy.resize(tree_size, 0);
@@ -114,7 +114,7 @@ int main(){
     sort(segments.begin(), segments.end(),[](const tuple<int, int, int> & s1,  const tuple<int, int, int> & s2){
         return get<0>(s1) < get<0>(s2);
     });
-    Seg_Tree tree(elems);
+    Seg_Tree tree(elems.size());
     for(int i = 0; i < n; i++){
         tree.add(get<1>(segments[i]),get<1>(segments[i]), 1);
     }

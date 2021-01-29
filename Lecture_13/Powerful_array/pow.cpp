@@ -65,7 +65,7 @@ void powerful(const vector<int> &v, vector<tuple<int, int, int>> &queries)
         results[get<2>(queries[i])] = sum;
     }
 
-    for (auto const& r: results)
+    for ( const int64_t &r: results)
     {
             cout << r << endl; 
     }
