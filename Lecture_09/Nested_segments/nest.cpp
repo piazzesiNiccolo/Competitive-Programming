@@ -1,5 +1,6 @@
  #include <iostream>
  #include <vector>
+ #include <tuple>
  #include <algorithm>
 
  using namespace std;
@@ -19,7 +20,6 @@
     }
     
     void add(int idx, int64_t val){
-         //start from one to not loop indefinitely
         for(idx++; idx <= elems.size(); idx += idx & -idx){
             elems[idx] += val;
         }
@@ -27,32 +27,42 @@
 };
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
     int n;
     cin >> n;
-    vector<pair<pair<int, int>,int>> segments;
-    Femwick_Tree tree(n);
+    vector<tuple<int, int, int>> segments(n);
+    vector<int> elems;
     
-        int l, r;
+    
+    int l, r;
     for (int i = 0; i < n; i++)
     {
      cin >> l >> r;
-     segments.emplace_back(make_pair(l, r), i);   
+     segments[i] = make_tuple(l, r, i);
+     elems.push_back(l);
+     elems.push_back(r);   
     }
-
+    sort(elems.begin(), elems.end());
     
-    sort(segments.begin(), segments.end(),
-        [](auto p1, auto p2){return p1.first.second < p2.first.second;});
-    
-    for(int i = 0; i < n; i++){segments[i].first.second = i;}
-
-    sort(segments.begin(), segments.end(),
-        [](auto p1, auto p2){return p1.first.first < p2.first.first;});
-    
-    vector<int64_t> sol(n);
-    for(int i = n-1;i >= 0; i--){
-        sol[segments[i].second] = tree.sum(segments[i].first.second);
-        tree.add(segments[i].first.second, 1);
+    for (int i = 0; i < n; i++)
+    {
+        get<0>(segments[i]) = lower_bound(elems.begin(), elems.end(), get<0>(segments[i])) - elems.begin();
+        get<1>(segments[i]) = lower_bound(elems.begin(), elems.end(), get<1>(segments[i])) - elems.begin();
+        
     }
-    
+    sort(segments.begin(), segments.end(),[](const tuple<int, int, int> & s1,  const tuple<int, int, int> & s2){
+        return get<0>(s1) < get<0>(s2);
+    });
+    Femwick_Tree tree(elems.size());
+    for(int i = 0; i < n; i++){
+        tree.add(get<1>(segments[i]), 1);
+    }
+    vector<int> sol(n);
+    for(int i = 0; i < n; i++){
+        sol[get<2>(segments[i])] = tree.sum(get<1>(segments[i])) - 1;
+        tree.add(get<1>(segments[i]), -1);
+    }
     for(auto s: sol) cout << s << endl; 
 }

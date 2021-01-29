@@ -72,6 +72,7 @@
         "variant": "cpp",
         "any": "cpp",
         "span": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "xstring": "cpp"
     }
 }
