@@ -1,96 +1,164 @@
-    #include <iostream>
-    #include <set>
-    #include <numeric>
-    using namespace std;
-     
-    long long int find_max(set<long long int> &light, set<long long int> &fire)
-    {
-     
-        if (light.empty() && fire.empty())
+#include <iostream>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <functional>
+using namespace std;
+
+map<long, long> doubled, others;
+int doubledFire = 0, fireSpells = 0;
+long long sum = 0, actual_sum = 0;
+
+void add_spell(pair<long, long> &s) {
+        if (s.first != 0)
         {
-            return 0;
-        }
-        else if (light.empty())
-        {
-            return accumulate(fire.begin(), fire.end(), 0LL);
-        }
-        else if (fire.empty())
-        {
-            return 2 * accumulate(light.begin(), light.end(), 0LL) - *(light.begin());
-        }
-        long long int max = 0;
-        bool doubled = false;
-        auto i = light.begin();
-        auto il = light.end();
-        il--;
-        auto j = fire.rbegin();
-        while (*i < *il)
-        {
-            max = doubled ? max + 2*(*i) : max + *i;
-            max +=  2 * (*il);
-            doubled = true;
-            if (j != fire.rend())
+            if (!others.empty())
             {
-                max += 2 * (*j);
-                j++;
-                doubled = false;
-            }
-            i++;
-            il--;
-        }
-        if (*i == *il)
-        {
-            max = doubled ? max + 2*(*i) : max + *i;
-            if (j != fire.rend())
-            {
-                max += 2 * (*j);
-                j++;
-            }
-        }
-     
-        while (j != fire.rend())
-        {
-            max = doubled ? max + 2*(*j) : max + *j;
-            doubled = false;
-            j++;
-        }
-     
-        return max;
-    }
-    int main(int argc, char const *argv[])
-    {
-        ios_base::sync_with_stdio(false);
-        long long int n;
-        cin >> n;
-        set<long long int> fire, light;
-        for (long long int i = 0; i < n; i++)
-        {
-            long long int type, value;
-            cin >> type >> value;
-            if (type)
-            {
-                if (value > 0)
+                long max = others.rbegin()->first;
+                if (s.second > max)
                 {
-                    light.insert(value);
+                    doubled.insert({s.second, s.first});
+                    sum += s.second * 2;
                 }
                 else
                 {
-                    light.erase(-value);
+                    long t_max = others.rbegin()->second;
+                    others.erase(max);
+                    doubled.insert({max, t_max});
+                    others.insert({s.second, s.first});
+                    if(t_max == 0) doubledFire++;
+                    sum += max;
+                    sum += s.second;
                 }
             }
             else
             {
-                if (value > 0)
+                doubled.insert({s.second, s.first});
+                sum += s.second * 2;
+            }
+        }
+        else
+        {
+            fireSpells++;
+            if (!doubled.empty())
+            {
+                long min = doubled.begin()->first;
+                if (s.second < min)
                 {
-                    fire.insert(value);
+                    others.insert({s.second, s.first});
+                    sum += s.second;
                 }
                 else
                 {
-                    fire.erase(-value);
+                    long t_min = doubled.begin()->second;
+                    doubled.erase(min);
+                    others.insert({min, t_min});
+                    doubled.insert({s.second, s.first});
+                    doubledFire++;
+                    if(t_min == 0) doubledFire--;
+                    sum -= min;
+                    sum += s.second * 2;
                 }
             }
-            cout << find_max(light, fire) << endl;
+            else
+            {
+                others.insert({s.second,s.first});
+                sum += s.second;
+            }
         }
-     
-        return 0;
     }
+
+
+    void remove_spell(pair<long, long> &s) {
+        if (s.first)
+        {
+            if (doubled.find(s.second) != doubled.end())
+            {
+                doubled.erase(s.second);
+                sum -= s.second * 2;
+            }
+            else
+            {
+                others.erase(s.second);
+                auto min = doubled.begin();
+                doubled.erase(min->first);
+                others.insert({min->first, min->second});
+                if( min->second == 0) doubledFire--;
+                sum -= s.second;
+                sum -= min->first;
+            }
+        }
+        else
+        {
+            fireSpells--;
+            if (doubled.find(s.second) != doubled.end())
+            {
+                doubled.erase(s.second);
+                doubledFire--;
+                auto max = others.rbegin();
+                others.erase(max->first);
+                doubled.insert({max->first, max->second});
+                if(max->second == 0) doubledFire++;
+                sum -= s.second*2;
+                sum += max->first;
+            }
+            else
+            {
+                others.erase(s.second);
+                sum -= s.second;
+            }
+            
+        }
+    }
+
+void power(vector<pair<long, long>> &changes)
+{
+    
+
+    
+
+
+    for (int i = 0; i < changes.size(); i++)
+    {
+        pair<long, long> c = changes[i];
+        if (c.second > 0)
+        {
+            add_spell(c);
+        }
+        else
+        {
+            c.second = -1L*c.second;
+            remove_spell(c);
+        }
+        actual_sum = sum;
+        if (doubledFire == 0 && fireSpells != 0)
+        {
+            if (!doubled.empty() && !others.empty())
+            {
+                actual_sum -= doubled.begin()->first;
+                actual_sum += others.rbegin()->first;
+            }
+        }
+        else if (fireSpells == 0)
+        {
+            actual_sum -= doubled.begin()->first;
+        }
+
+        cout << actual_sum << endl;
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    vector<pair<long, long>> changes;
+    long t, d;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> t >> d;
+        changes.emplace_back(t, d);
+    }
+    power(changes);
+    return 0;
+}

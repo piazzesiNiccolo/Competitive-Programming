@@ -73,6 +73,7 @@
         "any": "cpp",
         "span": "cpp",
         "regex": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "xtree": "cpp"
     }
 }
