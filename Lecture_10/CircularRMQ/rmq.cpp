@@ -147,6 +147,7 @@ int main(int argc, char const *argv[])
         int64_t word;
         while (ss >> word)
         {
+		
             words.push_back(word);
         }
 
