@@ -5,11 +5,15 @@
 #include <functional>
 using namespace std;
 
-map<long, long> doubled, others;
-int doubledFire = 0, fireSpells = 0;
-long long sum = 0, actual_sum = 0;
 
-void add_spell(pair<long, long> &s) {
+
+void power(vector<pair<long, long>> &changes)
+{
+    map<long, long> top, others;
+    int topFire = 0, fireSpells = 0;
+    long long sum = 0, actual_sum = 0;
+
+    function<void(pair<long, long> &)> add_spell = [&](pair<long, long> &s) {
         if (s.first != 0)
         {
             if (!others.empty())
@@ -17,32 +21,33 @@ void add_spell(pair<long, long> &s) {
                 long max = others.rbegin()->first;
                 if (s.second > max)
                 {
-                    doubled.insert({s.second, s.first});
+                    top.insert({s.second, s.first});
                     sum += s.second * 2;
                 }
                 else
                 {
                     long t_max = others.rbegin()->second;
                     others.erase(max);
-                    doubled.insert({max, t_max});
+                    top.insert({max, t_max});
                     others.insert({s.second, s.first});
-                    if(t_max == 0) doubledFire++;
+                    if (t_max == 0)
+                        topFire++;
                     sum += max;
                     sum += s.second;
                 }
             }
             else
             {
-                doubled.insert({s.second, s.first});
+                top.insert({s.second, s.first});
                 sum += s.second * 2;
             }
         }
         else
         {
             fireSpells++;
-            if (!doubled.empty())
+            if (!top.empty())
             {
-                long min = doubled.begin()->first;
+                long min = top.begin()->first;
                 if (s.second < min)
                 {
                     others.insert({s.second, s.first});
@@ -50,73 +55,69 @@ void add_spell(pair<long, long> &s) {
                 }
                 else
                 {
-                    long t_min = doubled.begin()->second;
-                    doubled.erase(min);
+                    long t_min = top.begin()->second;
+                    top.erase(min);
                     others.insert({min, t_min});
-                    doubled.insert({s.second, s.first});
-                    doubledFire++;
-                    if(t_min == 0) doubledFire--;
+                    top.insert({s.second, s.first});
+                    topFire++;
+                    if (t_min == 0)
+                        topFire--;
                     sum -= min;
                     sum += s.second * 2;
                 }
             }
             else
             {
-                others.insert({s.second,s.first});
+                others.insert({s.second, s.first});
                 sum += s.second;
             }
         }
-    }
+    };
 
-
-    void remove_spell(pair<long, long> &s) {
+    function<void(pair<long, long> &)> remove_spell = [&](pair<long, long> &s) {
         if (s.first)
         {
-            if (doubled.find(s.second) != doubled.end())
+            if (top.find(s.second) != top.end())
             {
-                doubled.erase(s.second);
+                top.erase(s.second);
                 sum -= s.second * 2;
             }
             else
             {
                 others.erase(s.second);
-                auto min = doubled.begin();
-                doubled.erase(min->first);
-                others.insert({min->first, min->second});
-                if( min->second == 0) doubledFire--;
+                long min = top.begin()->first;
+                long t_min = top.begin()->second;
+                top.erase(min);
+                others.insert({min, t_min});
+                if (t_min == 0)
+                    topFire--;
                 sum -= s.second;
-                sum -= min->first;
+                sum -= min;
             }
         }
         else
         {
             fireSpells--;
-            if (doubled.find(s.second) != doubled.end())
+            if (top.find(s.second) != top.end())
             {
-                doubled.erase(s.second);
-                doubledFire--;
-                auto max = others.rbegin();
-                others.erase(max->first);
-                doubled.insert({max->first, max->second});
-                if(max->second == 0) doubledFire++;
-                sum -= s.second*2;
-                sum += max->first;
+                top.erase(s.second);
+                topFire--;
+                long max = others.rbegin()->first;
+                long t_max = others.rbegin()->second;
+                others.erase(max);
+                top.insert({max, t_max});
+                if (t_max == 0)
+                    topFire++;
+                sum -= s.second * 2;
+                sum += max;
             }
             else
             {
                 others.erase(s.second);
                 sum -= s.second;
             }
-            
         }
-    }
-
-void power(vector<pair<long, long>> &changes)
-{
-    
-
-    
-
+    };
 
     for (int i = 0; i < changes.size(); i++)
     {
@@ -127,21 +128,21 @@ void power(vector<pair<long, long>> &changes)
         }
         else
         {
-            c.second = -1L*c.second;
+            c.second = -1L * c.second;
             remove_spell(c);
         }
         actual_sum = sum;
-        if (doubledFire == 0 && fireSpells != 0)
+        if (topFire == 0 && fireSpells != 0)
         {
-            if (!doubled.empty() && !others.empty())
+            if (!top.empty() && !others.empty())
             {
-                actual_sum -= doubled.begin()->first;
+                actual_sum -= top.begin()->first;
                 actual_sum += others.rbegin()->first;
             }
         }
         else if (fireSpells == 0)
         {
-            actual_sum -= doubled.begin()->first;
+            actual_sum -= top.begin()->first;
         }
 
         cout << actual_sum << endl;
@@ -150,6 +151,9 @@ void power(vector<pair<long, long>> &changes)
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
     int n;
     cin >> n;
     vector<pair<long, long>> changes;
