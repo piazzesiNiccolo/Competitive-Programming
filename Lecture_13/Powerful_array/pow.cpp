@@ -1,94 +1,80 @@
 #include <iostream>
 #include <algorithm>
-#include <functional>
 #include <vector>
-#include <tuple>
-#include <math.h>
+#include <cmath>
 using namespace std;
 
-/*NOTE: on codeforces if i used the normal g++17 compiler the execution went 
-over the time limit, using the 64 bit compiler instead made the program execute  faster(around 3500 ms)
-*/
 
-void powerful(const vector<int> &v, vector<tuple<int, int, int>> &queries)
+struct query
 {
-    const int BLOCK_SIZE = sqrt(v.size());
-    vector<int64_t> freq(1000000);
-    vector<int64_t> results(queries.size());
-    auto compare = [BLOCK_SIZE](const tuple<int, int, int> &q1, const tuple<int, int, int> &q2) {
-        return get<0>(q1) / BLOCK_SIZE !=  get<0>(q2) / BLOCK_SIZE ? get<0>(q1) / BLOCK_SIZE < get<0>(q2) / BLOCK_SIZE:
-                                                                    get<1>(q1) < get<1>(q2);
-    };
+    int64_t l, r;
+    int i;
+    query(int64_t l, int64_t r, int i) : l(l), r(r), i(i) {};
+};
 
-    sort(queries.begin(), queries.end(), compare);
-    int currL = 0, currR = -1, l, r;
-   
-    int64_t sum = 0;
-    function<void(int)> add = [&](int i){
-         
-        
-        sum += (2LL * freq[v[i]] + 1)*v[i];
-        freq[v[i]]++;
-
-    };
-
-    function<void(int)> remove = [&](int i){
-        sum -= (2LL * freq[v[i]] - 1)*v[i];
-        freq[v[i]]--;
-
-    };
-    for (int i = 0; i < queries.size(); i++)
-    {
-        
-        
-        l = get<0>(queries[i]);
-        r = get<1>(queries[i]);
+void powerful(const vector<int64_t> &v, vector<query> &queries)
+{
+    const int64_t block = (int64_t)sqrt(v.size());
+    int64_t freq[10000001];
+    vector<int64_t> res(queries.size());
+    sort(queries.begin(), queries.end(),[&block](const query &q1, const query &q2){
+        return q1.l/block != q2.l/block ? q1.l / block < q2.l/block : q1.r < q2.r;
+    });
+    int64_t currL = 0, currR=-1,sum = 0;
+    for(int i = 0; i < queries.size(); i++){
+        int64_t l = queries[i].l;
+        int64_t r = queries[i].r;
         while (currL < l)
-        {   
-            remove(currL++);
+        {
+            sum -= (2*(freq[v[currL]]) - 1)*v[currL];
+            freq[v[currL]]--;
+            currL++;
         }
-        
         while (currL > l)
         {
-           add(--currL);
+            currL--;
+            sum += (2*(freq[v[currL]]) + 1)*v[currL];
+            freq[v[currL]]++;
             
         }
         while (currR < r)
         {
-           add(++currR);
+            currR++;
+            sum += (2*(freq[v[currR]]) + 1)*v[currR];
+            freq[v[currR]]++;
             
         }
+        
         while (currR > r)
         {
-            remove(currR--);
+            sum -= (2*(freq[v[currR]]) - 1)*v[currR];
+            freq[v[currR]]--;
+            currR--;
         }
-        results[get<2>(queries[i])] = sum;
+        res[queries[i].i] = sum;
     }
-
-    for ( const int64_t &r: results)
-    {
-            cout << r << endl; 
-    }
+    for(auto &r:res) cout << r << endl;
 }
 int main()
 {
     int n, t;
-    ios_base::sync_with_stdio(0);
+    ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
     cin >> n >> t;
 
-    vector<int> v(n);
-    for (size_t i = 0; i < n; i++)
+    vector<int64_t> v(n);
+    for (int i = 0; i < n; i++)
     {
         
         cin >> v[i];
     }
-    vector<tuple<int, int, int>> queries(t);
-    int l, r;
+    vector<query> queries;
+    queries.reserve(t);
+    int64_t l, r;
     for(int i = 0; i < t; i++) {
         cin >> l >> r;
-        queries[i] =  make_tuple(l-1, r-1, i);
+        queries.emplace_back(l-1, r-1, i);
     }
     powerful(v, queries);
     
