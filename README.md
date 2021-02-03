@@ -22,9 +22,17 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 |[Little girl and maximum sum](http://codeforces.com/problemset/problem/276/C?locale=en) | [girl.md](Lecture_07/Little_girl_and_maximum_sum/girl.md) | [girl.cpp](Lecture_07/Little_girl_and_maximum_sum/girl.cpp)|
 |[Number of ways](http://codeforces.com/problemset/problem/466/C?locale=en) | [ways.md](Lecture_07/Number_of_ways/ways.md) | [ways.cpp](Lecture_07/Number_of_ways/ways.cpp)|
 |[Update the array](http://www.spoj.com/problems/UPDATEIT/) | [update.md](Lecture_08/Update_the_array/update.md) | [update.cpp](Lecture_08/Update_the_array/update.cpp)|
+|[Nested segments](http://codeforces.com/problemset/problem/652/D?locale=en)|[nest.md](Lecture_09/Nested_segments/nest.md)|[nest.cpp](Lecture_09/Nested_segments/nest.cpp)
+|[Nested segments with Segment Tree](http://codeforces.com/problemset/problem/652/D?locale=en)|[segtreeNest.md](Lecture_10/Nested_segments_with_segTree/segtreeNest.md)|[segtreeNest.cpp](Lecture_10/Nested_segments_with_segTree/segtreeNest.cpp)|
+|[Triplets](https://github.com/rossanoventurini/CompetitiveProgramming/blob/master/Exams/Text14022018.pdf)|[triplets.md](Lecture_12/Triplets/triplets.md)|[triplets.cpp](Lecture_12/Triplets/triplets.cpp)|
+|[Smaller values](https://github.com/rossanoventurini/CompetitiveProgramming/blob/master/Exams/Text14012019.pdf)|[small.md](Lecture_12/Smaller_values/small.md)|[small.cpp](Lecture_12/Smaller_values/small.cpp)|
 |[Circular Range Minimum Query](https://codeforces.com/problemset/problem/52/C)|[rmq.md](Lecture_10/CircularRMQ/rmq.md)|[rmq.cpp](Lecture_10/CircularRMQ/rmq.cpp)
 |[Powerful Array](https://codeforces.com/contest/86/problem/D)|[pow.md](Lecture_13/Powerful_array/pow.md)|[pow.cpp](Lecture_13/Powerful_array/pow.cpp)
 |[Tree and Queries](https://codeforces.com/contest/375/problem/D) | [treequery.md](Lecture_13/Tree_and_queries/treequery.md)| [treequery.cpp](Lecture_13/Tree_and_queries/treequery.cpp)|
 |[0-1 Knapsack](https://www.spoj.com/problems/KNAPSACK/)|[knapsack.md](Lecture_14/0-1_knapsack/knapsack.md) |[knapsack.cpp](Lecture_14/0-1_knapsack/knapsack.cpp)|
 |[Longest common subsequence](https://practice.geeksforgeeks.org/problems/longest-common-subsequence-1587115620/1)|[lcs.md](Lecture_14/Longest_common_subsequence/lcs.md) |[lcs.cpp](Lecture_14/Longest_common_subsequence/lcs.cpp)|
 |[Edit distance](https://practice.geeksforgeeks.org/problems/edit-distance3702/1)|[ed.md](Lecture_16/Edit_distance/ed.md)|[ed.cpp](Lecture_16/Edit_distance/ed.cpp)|
+|[Alternative Thinking](http://codeforces.com/problemset/problem/603/A?locale=en)|[think.md](Lecture_17/Alternative_thinking/think.md)|[think.cpp](Lecture_17/Alternative_thinking/think.cpp)|
+|[Magic Numbers](http://codeforces.com/problemset/problem/320/A?locale=en)|[magic.md](Lecture_17/Magic_numbers/magic.md)|[magic.cpp](Lecture_17/Magic_numbers/magic.cpp)|
+|[N meetings in one room](http://practice.geeksforgeeks.org/problems/n-meetings-in-one-room/0)|[meetings.md](Lecture_17/Meetings_in_one_room/meetings.md)|[meetings.cpp](Lecture_17/Meetings_in_one_room/meetings.cpp)|
+|[Wilbur and array](http://codeforces.com/problemset/problem/596/B?locale=en)|[wilbur.md](Lecture_17/Wilbur_and_array/wilbur.md)|[wilbur.cpp](Lecture_17/Wilbur_and_array/wilbur.cpp)|
