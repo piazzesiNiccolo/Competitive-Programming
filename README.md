@@ -31,7 +31,11 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 |[Tree and Queries](https://codeforces.com/contest/375/problem/D) | [treequery.md](Lecture_13/Tree_and_queries/treequery.md)| [treequery.cpp](Lecture_13/Tree_and_queries/treequery.cpp)|
 |[0-1 Knapsack](https://www.spoj.com/problems/KNAPSACK/)|[knapsack.md](Lecture_14/0-1_knapsack/knapsack.md) |[knapsack.cpp](Lecture_14/0-1_knapsack/knapsack.cpp)|
 |[Longest common subsequence](https://practice.geeksforgeeks.org/problems/longest-common-subsequence-1587115620/1)|[lcs.md](Lecture_14/Longest_common_subsequence/lcs.md) |[lcs.cpp](Lecture_14/Longest_common_subsequence/lcs.cpp)|
+|[Subset_sum](https://practice.geeksforgeeks.org/problems/subset-sum-problem/0)|[sum.md](Lecture_14/Subset_sum/sum.md)|[sum.cpp](Lecture_14/Subset_sum/sum.cpp)|
+|[Longest_increasing_subsequence](https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence/0)|[lis.md](Lecture_15/Longest_increasing_subsequence/lis.md)|[lis.cpp](Lecture_15/Longest_increasing_subsequence/lis.cpp)|
+|[Longest_bitonic_subsequence](https://practice.geeksforgeeks.org/problems/longest-bitonic-subsequence/0)|[lbs.md](Lecture_15/Longest_bitonic_subsequence/lbs.md)|[lbs.cpp](Lecture_15/Longest_bitonic_subsequence/lbs.cpp)|
 |[Edit distance](https://practice.geeksforgeeks.org/problems/edit-distance3702/1)|[ed.md](Lecture_16/Edit_distance/ed.md)|[ed.cpp](Lecture_16/Edit_distance/ed.cpp)|
+|[Longest_palindromic_subsequence](https://practice.geeksforgeeks.org/problems/longest-palindromic-subsequence/0)|[lps.md](Lecture_16/Longest_palindromic_subsequence/lps.md)|[lps.cpp](Lecture_16/Longest_Palindromic_subsequence/lps.cpp)|
 |[Alternative Thinking](http://codeforces.com/problemset/problem/603/A?locale=en)|[think.md](Lecture_17/Alternative_thinking/think.md)|[think.cpp](Lecture_17/Alternative_thinking/think.cpp)|
 |[Magic Numbers](http://codeforces.com/problemset/problem/320/A?locale=en)|[magic.md](Lecture_17/Magic_numbers/magic.md)|[magic.cpp](Lecture_17/Magic_numbers/magic.cpp)|
 |[N meetings in one room](http://practice.geeksforgeeks.org/problems/n-meetings-in-one-room/0)|[meetings.md](Lecture_17/Meetings_in_one_room/meetings.md)|[meetings.cpp](Lecture_17/Meetings_in_one_room/meetings.cpp)|
