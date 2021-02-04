@@ -25,6 +25,7 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 |[Number of ways](http://codeforces.com/problemset/problem/466/C?locale=en) | [ways.md](Lecture_07/Number_of_ways/ways.md) | [ways.cpp](Lecture_07/Number_of_ways/ways.cpp)|
 |[Update the array](http://www.spoj.com/problems/UPDATEIT/) | [update.md](Lecture_08/Update_the_array/update.md) | [update.cpp](Lecture_08/Update_the_array/update.cpp)|
 |[Nested segments](http://codeforces.com/problemset/problem/652/D?locale=en)|[nest.md](Lecture_09/Nested_segments/nest.md)|[nest.cpp](Lecture_09/Nested_segments/nest.cpp)
+|[Pashmak and Parmida](http://codeforces.com/problemset/problem/459/D?locale=en)|[pashmak.md](Lecture_09/Pashmak_and_parmida/pashmak.md)|[pashmak.cpp](Lecture_09/Pashmak_and_parmida/pashmak.cpp)|
 |[Nested segments with Segment Tree](http://codeforces.com/problemset/problem/652/D?locale=en)|[segtreeNest.md](Lecture_10/Nested_segments_with_segTree/segtreeNest.md)|[segtreeNest.cpp](Lecture_10/Nested_segments_with_segTree/segtreeNest.cpp)|
 |[Triplets](https://github.com/rossanoventurini/CompetitiveProgramming/blob/master/Exams/Text14022018.pdf)|[triplets.md](Lecture_12/Triplets/triplets.md)|[triplets.cpp](Lecture_12/Triplets/triplets.cpp)|
 |[Smaller values](https://github.com/rossanoventurini/CompetitiveProgramming/blob/master/Exams/Text14012019.pdf)|[small.md](Lecture_12/Smaller_values/small.md)|[small.cpp](Lecture_12/Smaller_values/small.cpp)|
