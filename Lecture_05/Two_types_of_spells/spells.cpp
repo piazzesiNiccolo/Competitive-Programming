@@ -38,6 +38,7 @@ void power(vector<pair<long, long>> &changes)
             }
             else
             {
+                
                 top.insert({s.second, s.first});
                 sum += s.second * 2;
             }

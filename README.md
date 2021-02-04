@@ -16,6 +16,8 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 |[Towers](http://codeforces.com/problemset/problem/37/A?locale=en) | [towers.md](Lecture_03/Towers/towers.md) | [towers.cpp](Lecture_03/Towers/towers.cpp) |
 |[Inversion count](http://www.spoj.com/problems/INVCNT/) | [inversion_count.md](Lecture_04/Inversion_count/inversion_count.md) | [inversion_count.cpp](Lecture_04/Inversion_count/inversion_count.cpp)|
 |[The Monkey and the Oiled Bamboo](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3183) | [monkey.md](Lecture_04/monkey_and_bamboo/monkey.md) | [monkey.cpp](Lecture_04/monkey_and_bamboo/monkey.cpp)
+|[Two Types of Spells](https://codeforces.com/contest/1398/problem/E?locale=en)|[spells.md](Lecture_05/Two_types_of_spells/spells.md)|[spells.cpp](Lecture_05/Two_types_of_spells/spells.cpp)|
+|[Frogs and Mosquitoes](https://codeforces.com/contest/609/problem/F?locale=en)|[frogs.md](Lecture_06/Frogs_and_mosquitoes/frogs.md)|[frogs.cpp](Lecture_06/Frogs_and_mosquitoes/frogs.cpp)|
 |[Maximum path sum](http://practice.geeksforgeeks.org/problems/maximum-path-sum/1) | [max_path_sum.md](Lecture_06/Max_path_sum/max_path_sum.md) | [max_path_sum.cpp](Lecture_06/Max_path_sum/max_path_sum.cpp)|
 |[Longest k-Good Segment](https://codeforces.com/contest/616/problem/D?locale=en) | [segment.md](Lecture_06/Longest_kgood_segment/segment.md) | [segment.cpp](Lecture_06/Longest_kgood_segment/segment.cpp) 
 |[Ilya and queries](http://codeforces.com/problemset/problem/313/B?locale=en) | [ilya.md](Lecture_07/Ilya_and_queries/ilya.md) | [ilya.cpp](Lecture_07/Ilya_and_queries/ilya.cpp) |
@@ -34,7 +36,9 @@ Repo used to store the excercises assigned for the Competitive Programming and c
 |[Subset_sum](https://practice.geeksforgeeks.org/problems/subset-sum-problem/0)|[sum.md](Lecture_14/Subset_sum/sum.md)|[sum.cpp](Lecture_14/Subset_sum/sum.cpp)|
 |[Longest_increasing_subsequence](https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence/0)|[lis.md](Lecture_15/Longest_increasing_subsequence/lis.md)|[lis.cpp](Lecture_15/Longest_increasing_subsequence/lis.cpp)|
 |[Longest_bitonic_subsequence](https://practice.geeksforgeeks.org/problems/longest-bitonic-subsequence/0)|[lbs.md](Lecture_15/Longest_bitonic_subsequence/lbs.md)|[lbs.cpp](Lecture_15/Longest_bitonic_subsequence/lbs.cpp)|
+|[Minimum number of jumps](https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps/0)|[minjumps.md](Lecture_15/Minimum_number_of_jumps/minjumps.md)|[minjumps.cpp](Lecture_15/Minimum_number_of_jumps/minjumps.cpp)|
 |[Edit distance](https://practice.geeksforgeeks.org/problems/edit-distance3702/1)|[ed.md](Lecture_16/Edit_distance/ed.md)|[ed.cpp](Lecture_16/Edit_distance/ed.cpp)|
+|[Vertex cover](http://www.spoj.com/problems/PT07X/)|[vert.md](Lecture_16/Vertex_cover/vert.md)|[vert.cpp](Lecture_16/Vertex_cover/vert.cpp)|
 |[Longest_palindromic_subsequence](https://practice.geeksforgeeks.org/problems/longest-palindromic-subsequence/0)|[lps.md](Lecture_16/Longest_palindromic_subsequence/lps.md)|[lps.cpp](Lecture_16/Longest_Palindromic_subsequence/lps.cpp)|
 |[Alternative Thinking](http://codeforces.com/problemset/problem/603/A?locale=en)|[think.md](Lecture_17/Alternative_thinking/think.md)|[think.cpp](Lecture_17/Alternative_thinking/think.cpp)|
 |[Magic Numbers](http://codeforces.com/problemset/problem/320/A?locale=en)|[magic.md](Lecture_17/Magic_numbers/magic.md)|[magic.cpp](Lecture_17/Magic_numbers/magic.cpp)|
